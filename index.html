@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>System Information App</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="text-center">
+            <div class="container">
+                <h1>System Information</h1>
+                <div id="output">
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        console.log(process);
+        let output = `
+            <br><br><br><br>
+            <h2 class="page-header">App Version Data</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Your version of Node.js is: ${process.versions.node}</li>
+                <li class="list-group-item">Your version of Google Chrome is: ${process.versions.chrome}</li>
+                <li class="list-group-item">Your version of Electron is: ${process.versions.electron}</li>
+            </ul>
+            <br><br><br><br>
+            <h2 class="page-header">System Specs</h2>
+            <ul class="list-group">
+                <li class="list-group-item">System Architecture: ${process.arch}</li>
+                <li class="list-group-item">Processor Identifier: ${process.env.PROCESSOR_IDENTIFIER}</li>
+                <li class="list-group-item">Printer: ${process.env.PRINTER}</li>      
+            </ul>
+            <br><br><br><br>
+            <h2 class="page-header">System Memory</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Total: ${process.getSystemMemoryInfo().total / 1000000} Gigabytes</li>
+                <li class="list-group-item">Free: ${process.getSystemMemoryInfo().free / 1000000} Gigabytes</li>
+                <li class="list-group-item">Swap Total: ${process.getSystemMemoryInfo().swapTotal / 1000000} Gigabytes</li>   
+                <li class="list-group-item">Swap Free: ${process.getSystemMemoryInfo().swapFree / 1000000} Gigabytes</li>    
+            </ul>
+            <br><br><br><br>
+            <h2 class="page-header">Computer Info</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Computer Name: ${process.env.USERDOMAIN}</li>
+                <li class="list-group-item">Username: ${process.env.USERNAME}</li>
+                <li class="list-group-item">Home Directory: ${process.env.HOME}</li> 
+                <li class="list-group-item">System Drive: ${process.env.SYSTEMDRIVE}</li>
+                <li class="list-group-item">System Root: ${process.env.SYSTEMROOT}</li>     
+            </ul>
+            <br><br><br><br>
+        `;
+        document.getElementById('output').innerHTML = output;
+    </script>
+    <script>
+        require('./renderer.js');
+    </script>
+</html>
