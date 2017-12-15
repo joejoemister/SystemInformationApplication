@@ -1,4 +1,4 @@
-# System Information App
+# System Information Application
 
 I have created this application to try out electron.
 
