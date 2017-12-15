@@ -12,6 +12,6 @@ $ npm install
 $ npm start
 ```
 
-Or download the binary and unzip it to your computer and run "sysinfoapp.exe"
+# Or download the binary and unzip it to your computer and run "sysinfoapp.exe"
 
 https://github.com/joejoemister/SystemInformationApplication/releases
